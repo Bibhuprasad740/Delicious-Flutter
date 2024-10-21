@@ -21,7 +21,6 @@ class _TabScreenState extends State<TabScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageStorage(bucket: pageStorageBucket, child: currentScreen),
-      backgroundColor: AppColors.background,
       floatingActionButton: SizedBox(
         height: 60,
         width: 60,

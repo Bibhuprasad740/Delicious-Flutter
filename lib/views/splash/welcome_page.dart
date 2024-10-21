@@ -17,7 +17,6 @@ class _WelcomePageState extends State<WelcomePage> {
     var size = Utils.getSize(context);
 
     return Scaffold(
-      backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

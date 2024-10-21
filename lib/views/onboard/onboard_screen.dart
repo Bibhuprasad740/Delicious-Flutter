@@ -30,6 +30,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
       'image': 'assets/images/splash_3.png',
     },
   ];
+
   final _pageController = PageController();
   var currentPage = 0;
 
@@ -60,18 +61,24 @@ class _OnboardScreenState extends State<OnboardScreen> {
                     horizontal: AppSizes.largePadding),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Container(
-                      width: size.width * 0.7,
-                      height: size.height * 0.6,
-                      alignment: Alignment.center,
-                      child: Image.asset(
-                        page['image'].toString(),
-                        fit: BoxFit.contain,
+                    // Dynamically sized image based on screen height
+                    Flexible(
+                      flex: 4, // Take 40% of the available height
+                      child: Container(
+                        constraints: BoxConstraints(
+                          maxHeight: size.height *
+                              0.4, // Max height of 40% of screen height
+                        ),
+                        child: Image.asset(
+                          page['image'].toString(),
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                     const SizedBox(height: AppSizes.smallGap),
+
+                    // Title
                     Text(
                       page['title'].toString(),
                       style: const TextStyle(
@@ -81,12 +88,19 @@ class _OnboardScreenState extends State<OnboardScreen> {
                       ),
                     ),
                     const SizedBox(height: AppSizes.smallGap),
-                    Text(
-                      page['subtitle'].toString(),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: AppColors.primaryFont,
-                        fontSize: AppSizes.smallFont,
+
+                    // Subtitle
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: size.width *
+                              0.05), // Dynamic padding for responsiveness
+                      child: Text(
+                        page['subtitle'].toString(),
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: AppColors.primaryFont,
+                          fontSize: AppSizes.smallFont,
+                        ),
                       ),
                     ),
                     const SizedBox(height: AppSizes.largeGap),
@@ -102,7 +116,6 @@ class _OnboardScreenState extends State<OnboardScreen> {
               // Pagination dots
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: pages.asMap().entries.map((entry) {
                   var index = entry.key;
                   return Container(
@@ -124,6 +137,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
 
               const SizedBox(height: 20.0), // Add space after dots
 
+              // Button for Next/Get Started
               Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: AppSizes.largePadding),
@@ -145,6 +159,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                       }
                     }),
               ),
+
               const SizedBox(height: AppSizes.largeGap),
             ],
           ),
