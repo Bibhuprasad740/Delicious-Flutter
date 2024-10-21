@@ -1,7 +1,7 @@
-import 'package:delicious/views/auth/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../global/constants.dart';
+import 'welcome_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

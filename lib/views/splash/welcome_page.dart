@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../global/constants.dart';
 import '../../widgets/submit_button.dart';
+import '../auth/login_screen.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -65,7 +66,10 @@ class _WelcomePageState extends State<WelcomePage> {
                   const EdgeInsets.symmetric(horizontal: AppSizes.largePadding),
               child: SubmitButton(
                 text: 'Login',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
               ),
             ),
 

@@ -1,5 +1,6 @@
-import 'package:delicious/global/constants.dart';
 import 'package:flutter/material.dart';
+
+import '../global/constants.dart';
 
 class SubmitButton extends StatelessWidget {
   final String text;
@@ -16,20 +17,23 @@ class SubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: buttonColor,
-        border: Border.all(color: textColor),
-        borderRadius: BorderRadius.circular(AppSizes.borderRadius),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(
-          color: textColor,
-          fontWeight: FontWeight.bold,
-          fontSize: AppSizes.largeFont,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        height: 60,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: buttonColor,
+          border: Border.all(color: textColor),
+          borderRadius: BorderRadius.circular(AppSizes.borderRadius),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            color: textColor,
+            fontWeight: FontWeight.bold,
+            fontSize: AppSizes.largeFont,
+          ),
         ),
       ),
     );
