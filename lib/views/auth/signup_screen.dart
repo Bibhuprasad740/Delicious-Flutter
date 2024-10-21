@@ -3,6 +3,7 @@ import '../../global/constants.dart';
 import '../../widgets/action_text_row.dart';
 import '../../widgets/input_field.dart';
 import '../../widgets/submit_button.dart';
+import '../onboard/onboard_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -131,6 +132,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       text: 'Sign Up',
                       onPressed: () {
                         // Handle sign-up action
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const OnboardScreen(),
+                        ));
                       },
                     ),
                     const SizedBox(height: AppSizes.mediumGap),

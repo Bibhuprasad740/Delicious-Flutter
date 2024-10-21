@@ -5,6 +5,7 @@ import '../../widgets/action_text_row.dart';
 import '../../widgets/input_field.dart';
 import '../../widgets/square_tile.dart';
 import '../../widgets/submit_button.dart';
+import '../tab/tab_screen.dart';
 import 'forget_passwrod_screen.dart';
 import 'signup_screen.dart';
 
@@ -101,7 +102,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: AppSizes.largeGap),
                     SubmitButton(
                       text: 'Login',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const TabScreen(),
+                        ));
+                      },
                     ),
                     const SizedBox(height: AppSizes.mediumGap),
                     ActionTextRow(

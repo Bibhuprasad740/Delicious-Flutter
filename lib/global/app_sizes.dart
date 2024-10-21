@@ -7,9 +7,9 @@ class AppSizes {
   static const double mediumPadding = 16.0;
   static const double largePadding = 24.0;
 
-  static const double smallMargin = 24.0;
-  static const double mediumMargin = 24.0;
-  static const double largeMargin = 24.0;
+  static const double smallMargin = 14.0;
+  static const double mediumMargin = 20.0;
+  static const double largeMargin = 26.0;
 
   static const double smallGap = 10.0;
   static const double mediumGap = 20.0;
@@ -20,4 +20,5 @@ class AppSizes {
   static const smallFont = 14.0;
   static const mediumFont = 18.0;
   static const largeFont = 22.0;
+  static const extralargeFont = 28.0;
 }
