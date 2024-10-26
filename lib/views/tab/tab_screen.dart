@@ -15,7 +15,7 @@ class _TabScreenState extends State<TabScreen> {
   var currentTab = 2;
   var pageStorageBucket = PageStorageBucket();
 
-  Widget currentScreen = const HomeScreen();
+  Widget currentScreen = HomeScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class _TabScreenState extends State<TabScreen> {
           onPressed: () {
             if (currentTab != 2) {
               currentTab = 2;
-              currentScreen = const HomeScreen();
+              currentScreen = HomeScreen();
             }
             if (mounted) {
               setState(() {});

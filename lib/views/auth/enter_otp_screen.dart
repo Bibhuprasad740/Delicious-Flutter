@@ -130,18 +130,19 @@ class _EnterOtpScreenState extends State<EnterOtpScreen> {
         keyboardType: TextInputType.number,
         maxLength: 1,
         decoration: InputDecoration(
+          fillColor: AppColors.textField,
+          filled: true,
           counterText: '',
           enabledBorder: OutlineInputBorder(
-            borderSide:
-                const BorderSide(color: AppColors.placeholder, width: 2),
-            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.transparent, width: 0),
+            borderRadius: BorderRadius.circular(10),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: AppColors.primary, width: 3),
-            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: AppColors.primary, width: 2),
+            borderRadius: BorderRadius.circular(10),
           ),
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 15.0), // Adjust padding
+              const EdgeInsets.symmetric(vertical: 20.0), // Adjust padding
         ),
         onChanged: (value) {
           if (value.length == 1 && nextFocusNode != null) {

@@ -7,8 +7,8 @@ class InputField extends StatelessWidget {
   final String labelText;
   final bool obscureText;
   final VoidCallback onChanged;
-  final bool showPassword;
   final TextInputType keyboardType;
+  final IconData? prefixIcon;
 
   const InputField({
     super.key,
@@ -17,14 +17,14 @@ class InputField extends StatelessWidget {
     required this.onChanged,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
-    this.showPassword = false,
+    this.prefixIcon,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.textField,
         borderRadius: BorderRadius.circular(AppSizes.borderRadius),
       ),
       child: TextField(
@@ -32,15 +32,23 @@ class InputField extends StatelessWidget {
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: AppSizes.mediumPadding,
+          prefixIcon: (prefixIcon != null)
+              ? Icon(
+                  prefixIcon,
+                  color: AppColors.secondaryFont,
+                )
+              : null,
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: (prefixIcon != null)
+                ? AppSizes.extraLargePadding
+                : AppSizes.largePadding,
             vertical: AppSizes.mediumPadding,
           ),
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
           hintText: labelText,
           hintStyle: const TextStyle(
-            color: AppColors.placeholder,
+            color: AppColors.secondaryFont,
             fontSize: AppSizes.smallFont,
             fontWeight: FontWeight.w500,
           ),
